@@ -1,11 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
-
-## Write a short comment describing this function
-
-
+## Matrix with Inverse cached
+## set(y), set matrix
+## get(), return matrix
+## setInv(data), set inverse
+## getInv(), return inverse
 makeCacheMatrix <- function(x = matrix()) {
-  ## Matrix with Inverse cached
+  
   inverse <- NULL
   set <- function(y) {
     x <<- y
@@ -21,10 +20,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## Return a matrix that is the inverse of 'x'
+## If not exist cached inverse, it is calculated and saved
 cacheSolve <- function(x, ...) {
-  ## Return a matrix that is the inverse of 'x'
   
   i <- x$getInv()
   if(!is.null(i)) {
@@ -32,7 +30,7 @@ cacheSolve <- function(x, ...) {
     return(i)
   }
   data <- x$get()
-  i <- t(data, ...)
+  i <- solve(data, ...)
   x$setInv(i)
   i
 }
